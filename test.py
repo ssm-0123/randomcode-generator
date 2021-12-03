@@ -81,12 +81,4 @@ def reset():
     makedb.close()
 
 
-
-
-
-
-
 reset()
-make100code()
-howmanycode()
-hackcode()
