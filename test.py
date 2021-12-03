@@ -4,6 +4,8 @@ import json
 
 letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
+
+
 def codes():
     a = random.choice(letters)
     b = random.choice(letters)
@@ -40,11 +42,9 @@ def make100code():
             break
         while True:
             if rancode in listedcoupon:
-                print(rancode+" is already exist")
                 pass
             else:
                 listedcoupon.append(rancode)
-                print("Your code is "+rancode)
                 makedb = open('db2.txt','w')
                 makedb.write(json.dumps(listedcoupon))
                 makedb.close()
@@ -75,7 +75,18 @@ def howmanycode():
     listedcoupon = json.loads(db)
     print(len(listedcoupon))
 
+def reset():
+    makedb = open('db2.txt','w')
+    makedb.write("[]")
+    makedb.close()
+
+
+
+
+
+
+
+reset()
 make100code()
 howmanycode()
 hackcode()
-howmanycode()
