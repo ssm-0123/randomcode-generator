@@ -42,15 +42,24 @@ def usecode():
         makedb.close()
     else:
         print("You put the wrong code")
-        
+
+def reset():
+    makedb = open('db.txt','w')
+    makedb.write("[]")
+    makedb.close()
+
+
 def main():
     while True:
-        print("1. Make a code")
+        print("1. Make a random code")
         print("2. Use a code")
-        print("3. Exit")
+        print("3. Reset database")
+        print("4. Exit")
         pick = input("")
-        if pick == "3":
+        if pick == "4":
             break
+        elif pick == "2":
+            reset()
         elif pick == "2":
             usecode()
         elif pick == "1":
