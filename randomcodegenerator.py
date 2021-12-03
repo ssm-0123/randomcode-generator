@@ -58,7 +58,7 @@ def main():
         pick = input("")
         if pick == "4":
             break
-        elif pick == "2":
+        elif pick == "3":
             reset()
         elif pick == "2":
             usecode()
