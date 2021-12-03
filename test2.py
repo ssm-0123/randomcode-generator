@@ -60,12 +60,12 @@ def hackcode():
         fromdb.close()
         enteredcode = codes()
         if enteredcode in listedcoupon:
+            attempt = attempt + 1
             listedcoupon.remove(enteredcode)
-            print("You used "+ enteredcode)
             makedb = open('db2.txt','w')
             makedb.write(json.dumps(listedcoupon))
             makedb.close()
-            print(attempt)
+            print("attempts: "+str(attempt))
             avg.append(attempt)
             break
         else:
@@ -82,20 +82,11 @@ def reset():
     makedb.write("[]")
     makedb.close()
 
-def main():
-    while True:
-        print("1. Make 100 codes and hack the code")
-        print("2. print average of attempts")
-        print("3. Exit")
-        pick = input("")
-        if pick == "3" :
-            break
-        elif pick == "2":
-            print(sum(avg)/len(avg))
-        elif pick == "1":
-            reset()
-            make100code()
-            hackcode()
-            reset()
+while True:
+    reset()
+    make100code()
+    hackcode()
+    reset()
+    print("Average: "+str(sum(avg)/len(avg))+" attempts")
 
-main()
+
