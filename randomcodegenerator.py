@@ -44,9 +44,14 @@ def usecode():
         print("You put the wrong code")
 
 def reset():
-    makedb = open('db.txt','w')
-    makedb.write("[]")
-    makedb.close()
+    confirm = input('Are you sure? Type "yes" to continue')
+    if confirm == "yes":
+        makedb = open('db.txt','w')
+        makedb.write("[]")
+        makedb.close()
+        print("Database has been initialized.")
+    else:
+        print("Your request has been canceled.")
 
 
 def main():
